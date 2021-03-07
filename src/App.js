@@ -1,8 +1,10 @@
 import './App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { HeaderComponent } from './components/Header/HeaderComponent';
 import { SidebarComponent } from './components/Sidebar/SidebarComponent';
 import { FeedComponent } from './components/Feed/FeedComponent';
+import axios from 'axios';
+
 
 function App() {
 
@@ -33,11 +35,35 @@ function App() {
     // TODO [STRETCH] - implement loading state and pass to FeedComponent
 
     // TODO - pass in expanded sidebar state to components that need to know about it/update it.
+
+    const [houses, setHouses] = useState([])
+    function fetchHouses (){
+        const axios = require('axios');
+ 
+    
+        // Make a request for a user with a given ID
+        axios.get('https://www.anapioficeandfire.com/api/houses')
+          .then(function (response) {
+            // handle success
+        setHouses(response.data)
+        
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+    };
+
+   useEffect (fetchHouses, [])
+   
+   console.log(houses)
     return (
+
         <div className="app">
             <HeaderComponent />
+            <img src={require('../src/images/got.jpg').default} height="232" width="430"/>
             <SidebarComponent />
-            <FeedComponent />
+            <FeedComponent houses={houses} />
         </div>
     );
 }
