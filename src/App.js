@@ -1,16 +1,29 @@
 import './App.css';
-import React from 'react';
+import React, {Component, useState} from 'react';
 import { HeaderComponent } from './components/Header/HeaderComponent';
 import { SidebarComponent } from './components/Sidebar/SidebarComponent';
 import { FeedComponent } from './components/Feed/FeedComponent';
+import { getData } from './api/api';
+import { Base } from "@brandwatch/axiom-components";
+
 
 function App() {
+    const [sidebarCategories, setSidebarCategories] = useState(); 
+    const [searchInput, setSearchInput] = useState(); 
+    const [sidebarLimit, setSidebarLimit] = useState(10); 
+    const [responseData, setResponseData] = useState();
+    
 
-    // TODO - this is the "main" component for our app, and it will include all the global state that we care about
-    //  This should include things like:
-    //  * the sidebar expanded state
-    //  * the selected category (books/characters/houses)
-    //  * the feed results
+    const fetchFilteredData = () => {
+        getData(searchInput, sidebarCategories, sidebarLimit)
+       
+    };
+    
+    
+
+
+    // do api call with (sidebarCategories, searchInput, sidebarLimit)
+    // use response to set setResponseData(response)
 
     // TODO [STRETCH] - This could also include
     //  * the search term (if there is one)
@@ -34,11 +47,11 @@ function App() {
 
     // TODO - pass in expanded sidebar state to components that need to know about it/update it.
     return (
-        <div className="app">
-            <HeaderComponent />
-            <SidebarComponent />
-            <FeedComponent />
-        </div>
+        <Base className="app ax-theme--day">
+            <HeaderComponent setSearchInput={setSearchInput} fetchFilteredData={fetchFilteredData} />
+            <SidebarComponent setSidebarCategories={setSidebarCategories} setSidebarLimit={setSidebarLimit}/>
+            <FeedComponent responseData={responseData} sidebarCategories={sidebarCategories}/>
+        </Base>
     );
 }
 

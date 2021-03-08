@@ -2,7 +2,7 @@ import React from 'react'
 import './FeedComponent.css';
 
 // TODO - make sure FeedComponent is expecting the right props!
-export const FeedComponent = () => {
+export const FeedComponent = (props) => {
     return <div className={'feed'}>
         {/* TODO - add a placeholder for an empty feed */}
         {/* TODO - build up a list of results */}

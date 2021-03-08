@@ -3,6 +3,10 @@
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
+    height: 100%;
+    background-color: cadetblue;
+    width: 250px;
+    position: absolute;
 }
 
 /* TODO expanded styles */
