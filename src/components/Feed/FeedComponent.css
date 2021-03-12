@@ -1,6 +1,134 @@
 /* TODO add feed styles */
 .feed {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid green;
+  transition: 250ms;
+}
+
+.column2 {
+  margin: 0 20px;
+  display: flex;
+}
+
+.left70Column {
+  width: 70%;
+}
+
+.right30Column {
+  overflow-x: hidden;
+  position: relative;
+  padding-top: 50px;
+  max-width: 25%;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.Line {
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  border-top-width: var(--component-border-width-small);
+}
+
+.cardImg {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 200px;
+  max-width: 270px;
+  margin-top: 10px;
+}
+
+.Border {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-height: 160px;
+}
+
+.cardCaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.CardHeader {
+  height: 30px;
+  background-color: rgba(87, 125, 148, 0.7);
+}
+
+.Card {
+  height: 195px;
+}
+
+h1 {
+  font-size: 14px;
+}
+
+h2 {
+  font-style: italic;
+  font-size: 25px;
+  color: #ffffff;
+  justify-items: center;
+}
+.image {
+  max-height: 30px;
+  height: 20px;
+}
+
+.center {
+  position: absolute;
+  background-color: aqua;
+  display: "flex";
+  align-items: flex-end;
+}
+
+.inner {
+  height: auto;
+  align-items: "center";
+  justify-content: "center";
+  width: 118px;
+}
+.full-height {
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  width: 120px;
+  height: 142px;
+  overflow: auto;
+}
+
+.container:hover .overlay {
+  opacity: 15;
+}
+.overlay {
+  position: absolute;
+  background: rgb(87, 53, 53, 0.5);
+  background: rgba(87, 125, 148, 0.7); /* Black see-through */
+  width: 118px;
+  transition: 0.5s ease;
+  opacity: 0.3;
+  color: white;
+  text-align: center;
+  bottom: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .left70Column {
+    display: none;
+  }
+
+  .right30Column {
+    max-width: unset;
+  }
+
+  .column2 {
+    margin: 0;
+    overflow-x: hidden;
+    position: flex;
+    padding-top: 0px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
 }

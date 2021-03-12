@@ -1,0 +1,24 @@
+.infoBoard {
+  height: 500px;
+  padding: 50px;
+  border-width: 5px;
+  border-color: White;
+}
+
+.title {
+  font-size: 25px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.384);
+  text-align: center;
+}
+
+.househeading {
+  position: absolute;
+  top: -25px;
+  padding: 0;
+  right: 47%;
+}
+
+#househeadingpara {
+  font-size: 30px;
+}
