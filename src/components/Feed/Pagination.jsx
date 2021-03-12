@@ -35,12 +35,9 @@ const Pagination = (props) => {
       {props.currentPage >= props.lastPage - 1 ? (
         ""
       ) : (
-        // <div style={{ display: "inlineBlock" }}>
-
         <button onClick={nextPage}>{props.currentPage + 1}</button>
-        //   {/* <h3>...</h3>
-        // </div> */}
       )}
+      {props.currentPage < props.lastPage ? "..." : ""}
 
       {props.currentPage === props.lastPage ? (
         ""

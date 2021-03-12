@@ -36,12 +36,17 @@ function App() {
     callAPI();
   }, [radioSideBar, selectSideBar, query, currentPage, alive, gender, culture]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [alive, gender, culture, selectSideBar, radioSideBar, query]);
+
   const getPage = (link) => {
     var pageIndexStart = link.indexOf("page=") + 5;
     var pageIndexEnd = link.indexOf("&", pageIndexStart);
     return link.slice(pageIndexStart, pageIndexEnd);
   };
 
+  console.log(currentPage);
   const callAPI = async () => {
     const response = await getData(
       radioSideBar,
