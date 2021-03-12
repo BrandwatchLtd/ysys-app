@@ -32,14 +32,16 @@ export const FeedComponent = (props) => {
             return <BookCard ApiInfo={props.ApiInfo} />;
         }
       })()}
-      <Pagination
-        setCurrentPage={props.setCurrentPage}
-        currentPage={props.currentPage}
-        links={props.links}
-        radioSideBar={props.radioSideBar}
-        selectSideBar={props.selectSideBar}
-        lastPage={props.lastPage}
-      />
+      <div className="pagination">
+        <Pagination
+          setCurrentPage={props.setCurrentPage}
+          currentPage={props.currentPage}
+          links={props.links}
+          radioSideBar={props.radioSideBar}
+          selectSideBar={props.selectSideBar}
+          lastPage={props.lastPage}
+        />
+      </div>
     </div>
   );
 };
