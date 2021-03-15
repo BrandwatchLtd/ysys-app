@@ -31,6 +31,7 @@ function App() {
   const [gender, setGender] = useState("");
   const [culture, setCulture] = useState("");
   const [lastPage, setLastPage] = useState(null);
+  const [jumpToValue, setJumpToValue] = useState("");
 
   useEffect(() => {
     callAPI();
@@ -38,6 +39,7 @@ function App() {
 
   useEffect(() => {
     setCurrentPage(1);
+    setJumpToValue(1);
   }, [alive, gender, culture, selectSideBar, radioSideBar, query]);
 
   const getPage = (link) => {
@@ -46,7 +48,6 @@ function App() {
     return link.slice(pageIndexStart, pageIndexEnd);
   };
 
-  console.log(currentPage);
   const callAPI = async () => {
     const response = await getData(
       radioSideBar,
@@ -123,6 +124,8 @@ function App() {
             setGender={setGender}
             culture={culture}
             setCulture={setCulture}
+            jumpToValue={jumpToValue}
+            setJumpToValue={setJumpToValue}
           />
         </div>
         <Snackbar showSnackBar={showSnackBar} />

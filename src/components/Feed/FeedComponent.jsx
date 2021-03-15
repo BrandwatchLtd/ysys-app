@@ -40,6 +40,8 @@ export const FeedComponent = (props) => {
           radioSideBar={props.radioSideBar}
           selectSideBar={props.selectSideBar}
           lastPage={props.lastPage}
+          jumpToValue={props.jumpToValue}
+          setJumpToValue={props.setJumpToValue}
         />
       </div>
     </div>

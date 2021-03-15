@@ -1,0 +1,15 @@
+.jumpToSearch {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dots {
+  font-size: 30px;
+}
