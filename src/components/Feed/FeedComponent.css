@@ -125,6 +125,7 @@ h2 {
 
   .right30Column {
     max-width: unset;
+    padding-top: 0;
   }
 
   .column2 {
@@ -135,4 +136,6 @@ h2 {
     max-height: 70vh;
     overflow-y: auto;
   }
+
+
 }

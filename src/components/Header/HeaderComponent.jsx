@@ -13,44 +13,37 @@ export const HeaderComponent = (props) => {
     event.preventDefault();
     props.setQuery(props.search);
   };
+
+  const toggleSidebar = () => {
+    props.setSideBarOpen(!props.sideBarOpen);
+  };
   return (
-        <header className="header">
-          <div
-            className="inlineTitle hamburger-title"
-            onClick={() => props.setSideBarOpen(!props.sideBarOpen)}
-          >
-            <MenuIcon fontSize="large" />
-          </div>
-          <img
-            src="Images/Houses/GOT HEADER.png"
-            className="titleImg"
-            alt="Game of Thrones App"
-          />
-          <form
-            id="search"
-            className="inlineTitle formContainer"
-            onSubmit={handleSubmit}
-          >
-            <input
-              className="searchinput"
-              value={props.search}
-              placeholder="Enter Here..."
-              type="text"
-              onChange={handleSearchChange}
-            ></input>
+    <header className="header">
+      <div className="inlineTitle hamburger-title" onClick={toggleSidebar}>
+        <MenuIcon fontSize="large" />
+      </div>
+      <img
+        src="Images/Houses/GOT HEADER.png"
+        className="titleImg"
+        alt="Game of Thrones App"
+      />
+      <form
+        id="search"
+        className="inlineTitle formContainer"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="searchinput"
+          value={props.search}
+          placeholder="Enter Here..."
+          type="text"
+          onChange={handleSearchChange}
+        ></input>
 
-            {/* <input
-              className="mobileSearchInput"
-              value={props.search}
-              placeholder="Enter Here..."
-              type="text"
-              onChange={handleSearchChange}
-            ></input> */}
-
-            <button className="searchButton" type="submit" form="search">
-              <SearchIcon fontSize="default" />
-            </button>
-          </form>
-        </header>
+        <button className="searchButton" type="submit" form="search">
+          <SearchIcon fontSize="default" />
+        </button>
+      </form>
+    </header>
   );
 };

@@ -3,6 +3,7 @@ import { Select, MenuItem } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import { FeedComponent } from "./components/Feed/FeedComponent";
+import MobileSideBar from "./components/Sidebar/mobileSIdeBar";
 
 const MobileComponent = (props) => {
   const [showSearch, setShowSearch] = useState(false);
@@ -24,46 +25,10 @@ const MobileComponent = (props) => {
   };
   return (
     <div>
-      <div className="mobileSideBar">
-        <div
-          onClick={() => props.setRadioSideBar("houses")}
-          className={
-            props.radioSideBar === "houses"
-              ? "mobileSideButtons position-houses mobileSideButtonActive"
-              : "mobileSideButtons position-houses"
-          }
-        >
-          <div className="positioned">
-            <h3>Houses</h3>
-          </div>
-        </div>
-        <div>
-          <div
-            onClick={() => props.setRadioSideBar("characters")}
-            className={
-              props.radioSideBar === "characters"
-                ? "mobileSideButtons position-characters mobileSideButtonActive"
-                : "mobileSideButtons position-characters"
-            }
-          >
-            <div className="positioned">
-              <h3>Characters</h3>
-            </div>
-          </div>
-          <div
-            onClick={() => props.setRadioSideBar("books")}
-            className={
-              props.radioSideBar === "books"
-                ? "mobileSideButtons position-books mobileSideButtonActive"
-                : "mobileSideButtons position-books"
-            }
-          >
-            <div className="positioned">
-              <h3>Books</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MobileSideBar
+        setRadioSideBar={props.setRadioSideBar}
+        radioSideBar={props.radioSideBar}
+      />
       <div className="mobileFilters custom-select-mobile">
         <h5>
           Filter Search Size:{" "}
@@ -76,7 +41,9 @@ const MobileComponent = (props) => {
       </div>
       <div className="mobileContents">
         <div className="row">
-          <div id="title"><b>Currently Viewing: {props.radioSideBar}</b></div>
+          <div id="title">
+            <b>{props.radioSideBar}</b>
+          </div>
           <div id="search">
             <button className="searchButton" type="submit" form="search">
               <SearchIcon
@@ -87,20 +54,22 @@ const MobileComponent = (props) => {
           </div>
         </div>
         <div className={showSearch ? "pop-up-search" : "pop-up-search-closed"}>
-          <CloseIcon onClick={() => setShowSearch(false)} />
-          <form
-            id="search"
-            className="inlineTitle formContainer"
-            onSubmit={handleSubmit}
-          >
-            <input
-              className="searchinput"
-              value={props.search}
-              placeholder="Enter Here..."
-              type="text"
-              onChange={handleSearchChange}
-            ></input>
-          </form>
+          <div className="mobileSearch">
+            <CloseIcon onClick={() => setShowSearch(false)} />
+            <form
+              id="search"
+              className=" formContainer"
+              onSubmit={handleSubmit}
+            >
+              <input
+                className="searchinput"
+                value={props.search}
+                placeholder="Enter Here..."
+                type="text"
+                onChange={handleSearchChange}
+              ></input>
+            </form>
+          </div>
         </div>
         <FeedComponent
           ApiInfo={props.ApiInfo}
@@ -113,6 +82,8 @@ const MobileComponent = (props) => {
           setAlive={props.setAlive}
           gender={props.gender}
           setGender={props.setGender}
+          jumpToValue={props.jumpToValue}
+          setJumpToValue={props.setJumpToValue}
         />
       </div>
     </div>

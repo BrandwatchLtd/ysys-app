@@ -69,7 +69,10 @@ const CharacterInfo = (props) => {
     house = "Images/Cultures/Northern Mountain Clan.png";
   } else if (props.item.culture === "Rivermen") {
     house = "Images/Cultures/Rivermen.jpg";
-  } else if ((props.item.culture === "Westerman") || (props.item.culture === "Westerlands")) {
+  } else if (
+    props.item.culture === "Westerman" ||
+    props.item.culture === "Westerlands"
+  ) {
     house = "Images/Cultures/Westermen.png";
   } else if (props.item.culture === "First Men") {
     house = "Images/Cultures/Firstmen.png";
@@ -111,7 +114,7 @@ const CharacterInfo = (props) => {
   }
   const classes = useStyles();
   return (
-    <Grid item xs={6} md={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.root}>
         <div className="CardHeader">
           <Typography variant="h5" component="h2">

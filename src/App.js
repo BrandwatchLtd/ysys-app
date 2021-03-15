@@ -76,8 +76,6 @@ function App() {
     setApiInfo(data);
     setLinks(links);
     returnedResultsWarning(data);
-    // console.log(tempLinks);
-    // console.log(getPage(tempLinks.last));
     setLastPage(getPage(tempLinks.last));
   };
 
@@ -128,7 +126,6 @@ function App() {
             setJumpToValue={setJumpToValue}
           />
         </div>
-        <Snackbar showSnackBar={showSnackBar} />
       </div>
       <div className="mobile">
         <MobileComponent
@@ -145,8 +142,13 @@ function App() {
           setAlive={setAlive}
           gender={gender}
           setGender={setGender}
+          jumpToValue={jumpToValue}
+          setJumpToValue={setJumpToValue}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
         />
       </div>
+      <Snackbar showSnackBar={showSnackBar} />
     </div>
   );
 }

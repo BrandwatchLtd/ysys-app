@@ -141,4 +141,7 @@ ul {
   .mobile {
     display: flex;
   }
+  ul {
+    padding: 0;
+  }
 }

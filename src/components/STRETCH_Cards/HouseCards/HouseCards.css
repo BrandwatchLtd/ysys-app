@@ -22,3 +22,7 @@
 #househeadingpara {
   font-size: 30px;
 }
+
+.right30Column .MuiGrid-container {
+  justify-content: center;
+}

@@ -176,7 +176,7 @@ export const HouseCard = (props) => {
       </div>
 
       <div className="right30Column">
-        <Grid container spacing={3}>
+        <Grid className="housesContainerCenter" container spacing={3}>
           {props.ApiInfo.map((item, index) => (
             <Grid item md={6} lg={6} key={index}>
               <Paper

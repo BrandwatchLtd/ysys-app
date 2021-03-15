@@ -8,7 +8,7 @@
 }
 
 .position-houses {
-  position: absolute;
+  position: fixed;
   width: 50px;
   height: 130px;
   left: 0px;
@@ -16,7 +16,7 @@
 }
 
 .position-characters {
-  position: absolute;
+  position: fixed;
   width: 50px;
   height: 130px;
   left: 0px;
@@ -24,7 +24,7 @@
 }
 
 .position-books {
-  position: absolute;
+  position: fixed;
   width: 50px;
   height: 130px;
   left: 0px;
@@ -91,8 +91,8 @@
 }
 
 .mobileContents {
-  margin: 70px 30px 0px 80px;
-  padding: 10px 10px;
+  padding: 70px 30px 0px 80px;
+  /* padding: 10px 10px; */
 }
 
 #title {
@@ -102,6 +102,7 @@
 
 .row {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .row div {
@@ -114,9 +115,18 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.651);
+  background-color: rgba(0, 0, 0, 0.801);
+  z-index: 1;
 }
 
 .pop-up-search-closed {
   display: none;
+}
+
+.mobileSearch {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80vw;
+  margin-top: 10vh;
 }
