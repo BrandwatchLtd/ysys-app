@@ -1,12 +1,49 @@
-import React from 'react';
-import './HeaderComponent.css';
+import React from "react";
+import "./HeaderComponent.css";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
 
 // TODO - make sure HeaderComponent is expecting the right props (if any)!
-export const HeaderComponent = () => {
-    return <header className={'header'}>
-        {/* TODO [STRETCH] - add in any controls that you'd like in your header
-             E.g, a search bar, a toggle button for the side bar, or just a plain header!
-        */}
-        I'm the header component
+export const HeaderComponent = (props) => {
+  const handleSearchChange = (event) => {
+    props.setSearch(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.setQuery(props.search);
+  };
+
+  const toggleSidebar = () => {
+    props.setSideBarOpen(!props.sideBarOpen);
+  };
+  return (
+    <header className="header">
+      <div className="inlineTitle hamburger-title" onClick={toggleSidebar}>
+        <MenuIcon fontSize="large" />
+      </div>
+      <img
+        src="Images/Houses/GOT HEADER.png"
+        className="titleImg"
+        alt="Game of Thrones App"
+      />
+      <form
+        id="search"
+        className="inlineTitle formContainer"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="searchinput"
+          value={props.search}
+          placeholder="Enter Here..."
+          type="text"
+          onChange={handleSearchChange}
+        ></input>
+
+        <button className="searchButton" type="submit" form="search">
+          <SearchIcon fontSize="default" />
+        </button>
+      </form>
     </header>
+  );
 };
