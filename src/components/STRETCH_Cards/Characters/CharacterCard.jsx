@@ -58,12 +58,10 @@ export const CharacterCard = (props) => {
   const [filterGender, setFilterGender] = useState('None');
   const [filterCulture, setFilterCulture] = useState('None');
   const genderOptions = [
-    'None',
     'Female',
     'Male'
   ];
   const cultureOptions = [
-    'None',
     'Andal',
     'Asshai',
     'Braavosi',
@@ -91,10 +89,7 @@ export const CharacterCard = (props) => {
       <div className={classes.customselect}>
         <Menu menuButton={<MenuButton>Filter By:</MenuButton>} >
           <SubMenu label="Status">
-            <MenuRadioGroup value={status} onChange={(e) => setStatus(e.value)}>
-              <MenuItem value="None" onClick={() => props.setAlive("")}>
-                None
-              </MenuItem>
+            <MenuRadioGroup value={status} onChange={e => setStatus(e.value)}>
               <MenuItem value="Alive" onClick={() => props.setAlive(true)}>
                 Alive
               </MenuItem>
